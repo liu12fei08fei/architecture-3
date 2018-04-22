@@ -28,6 +28,7 @@ export default class UserController{
     // 模板引入，默认index
     @route('/:id')
     @GET()
+    // @POST()//这里可以即使用GET又使用POST，get渲染页面，post请求数据
     async getUser(ctx,next) {
         const result = await this.userService.getData(ctx.params.id);
         ctx.body = await ctx.render('index', { data: result });
